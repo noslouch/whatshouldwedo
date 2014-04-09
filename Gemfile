@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.1.1'
+#ruby-gemset=whatsnext
 
 gem 'rails', '4.1.0'
 gem 'pg'
@@ -15,7 +16,18 @@ gem 'foundation-rails'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+group :development do
+  gem 'spring'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'selenium-webdriver', '2.35.1'
+  gem 'capybara', '2.1.0'
+end
 
 group :production do
   gem 'rails_12factor'
