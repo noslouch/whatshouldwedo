@@ -22,5 +22,8 @@ module Whatsnext
 
     # required by Foundation v5
     config.assets.precompile += %w( vendor/modernizr )
+
+    # required by heroku
+    config.assets.enable = true
   end
 end
