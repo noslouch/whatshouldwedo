@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  password:
+
+development:
+  <<: *default
+  database: whatsnext_development
+
+test:
+  <<: *default
+  database: whatsnext_test
+
+production:
+  <<: *default
+  database: whatsnext_production
