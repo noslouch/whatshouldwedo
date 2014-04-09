@@ -1,0 +1,14 @@
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+        text-align: center;
+    }
+}
+
+.choice {
+    font-size: 2rem;
+}
