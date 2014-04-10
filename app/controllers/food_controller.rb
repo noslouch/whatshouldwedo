@@ -1,7 +1,11 @@
 class FoodController < ApplicationController
-		
+
   def index
-	@venue = get_a_venue(:food, session[:geo])
+    if session[:geo].blank?
+      redirect_to root_path
+    else
+      @venue = get_a_venue(:food, session[:geo])
+    end
   end
 
 end
