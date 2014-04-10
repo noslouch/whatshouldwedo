@@ -1,0 +1,16 @@
+<% provide(:title, @venue[:name]) %>
+
+<div class="row">
+    <div class="small-12 columns">
+        <p class="subheader">You should go to</p>
+        <div class="radius callout panel">
+            <h2><%= @venue[:name] %></h2>
+            <ul class="vcard">
+                <li class="street-address"><%= @venue[:location][:address] %></li>
+                <li><%= @venue[:location][:crossStreet] %></li>
+                <li><a href="tel:<%= @venue[:contact][:formattedPhone] %>"><%= @venue[:contact][:formattedPhone] %></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+

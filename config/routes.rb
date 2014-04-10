@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'drinks/index'
-
-  get 'food/index'
-
+  resources :food, only: [:index, :show]
+  resources :drinks, only: [:index, :show]
   get 'static_pages/home'
 
   get 'static_pages/about'

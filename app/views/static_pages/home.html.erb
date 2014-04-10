@@ -5,8 +5,12 @@
         </div>
     </div>
     <div class="row">
-        <div class="small-6 columns"><a class="choice button radius expand" href="#">Food</a></div>
-        <div class="small-6 columns"><a class="choice button radius expand" href="#">Drink</a></div>
+        <div class="small-6 columns">
+            <%= link_to 'Food', food_index_path, class: "choice button radius expand" %>
+        </div>
+        <div class="small-6 columns">
+            <%= link_to 'Drink', drinks_path, class: "choice button radius expand" %>
+        </div>
     </div>
 
 </div>
