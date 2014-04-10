@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   resources :food, only: [:index, :show]
   resources :drinks, only: [:index, :show]
+
+  post '/food' => 'application#set_geo'
+  post '/drinks' => 'application#set_geo'
+  post '/' => 'application#set_geo'
+
+
   get 'static_pages/home'
 
   get 'static_pages/about'

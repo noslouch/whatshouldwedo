@@ -1,13 +1,7 @@
 class DrinksController < ApplicationController
+
   def index
-    if params[:id]
-      # get venue by id
-      @venue = get_a_venue(:drinks)
-    else
-      @venue = get_a_venue(:drinks)
-    end
+	@venue = get_a_venue(:drinks, session[:geo])
   end
 
-  def show
-  end
 end

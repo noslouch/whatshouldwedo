@@ -1,0 +1,15 @@
+<div class="row buttons" id="buttons">
+    <div class="small-12 medium-6 columns">
+        <h3><%= link_to 'Try Another One',
+                params[:controller] == "drinks" ? drinks_path : food_index_path,
+                class: "choice button expand radius" %></h3>
+    </div>
+    <div class="small-12 medium-6 columns">
+        <h3><%= link_to params[:controller] == "drinks" ?
+                "I Want Some Food Instead" : "I Want a Drink Instead",
+            params[:controller] == "drinks" ? food_index_path : drinks_path,
+            class: "choice button expand radius" %></h3>
+    </div>
+</div>
+
+<%= debug(params) %>
