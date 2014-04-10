@@ -5,11 +5,22 @@
     flex-direction: column;
     justify-content: center;
 
-    h1 {
+    h1,
+    h2,
+    .subheader,
+    .vcard {
         text-align: center;
+    }
+
+    .vcard {
+        display: block;
     }
 }
 
 .choice {
     font-size: 2rem;
+}
+
+.bigger {
+    font-size: 1.5rem;
 }
