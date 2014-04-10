@@ -8,7 +8,6 @@ module ApplicationHelper
       client_id: "3WPIQTCP4J50A23SXQCDH0PRIRAT0TCEVGMQMHRBUOOSGRYA",
       client_secret: "F43WJIRIWPG5QDQWZJTNHRCJP4ZNBURYBJIASZD1354TADPY",
       section: section,
-      limit: 10,
       v: t.strftime('%Y%m%d')
     }
     url.query = URI.encode_www_form(params)
