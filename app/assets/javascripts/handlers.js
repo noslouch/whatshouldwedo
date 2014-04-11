@@ -21,11 +21,15 @@
     }
 
     function err(error) {
-        alert('ERROR(' + error.code + '): ' + error.message)
+        if (error.code === 1) {
+            alert("ERROR: Your GPS could not be activated. Please turn on your GPS or allow the site to use your current location.")
+        } else {
+            alert('ERROR(' + error.code + '): ' + error.message)
+        }
     }
 
     navigator.geolocation.getCurrentPosition(success, err, ops)
-    
+
     // if (buttons) {
     //  buttons.addEventListener('click', function(e){
     //     e.preventDefault()
