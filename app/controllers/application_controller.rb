@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     if params[:ll].blank?
       @geo = session[:geo]
     else
-      @geo = params[:ll]
+      @geo = session[:geo] = params[:ll]
     end
     p @geo
   end
