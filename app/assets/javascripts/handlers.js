@@ -1,13 +1,4 @@
 /*jshint asi:true*/
-
-(function() {
-    document.addEventListener('click', function disabled(e) {
-        if (e.target.classList.contains('disabled')) {
-            e.preventDefault()
-        }
-    }, false)
-})()
-
 var WN = {}
 WN.buttons = document.getElementById('buttons')
 
@@ -46,3 +37,12 @@ WN.locate = function() {
 
     navigator.geolocation.getCurrentPosition(success.bind(this), err, ops)
 }
+
+;(function() {
+    document.addEventListener('click', function disabled(e) {
+        if (e.target.classList.contains('disabled')) {
+            e.preventDefault()
+        }
+    }, false)
+})()
+
