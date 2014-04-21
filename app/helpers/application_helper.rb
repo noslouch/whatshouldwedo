@@ -11,11 +11,7 @@ module ApplicationHelper
       section: section,
       v: t.strftime('%Y%m%d')
     }
-    # if geo.blank?
-    #   params[:near] = "Greenpoint, Brooklyn"
-    # else
-    #   params[:ll] = geo
-    # end
+
     params[:near] = geo
     url.query = URI.encode_www_form(params)
     res = JSON.parse(Net::HTTP.get_response(url).body, symbolize_names: true)

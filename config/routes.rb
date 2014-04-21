@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :food, only: [:index]
-  resources :drinks, only: [:index]
+  get '/food', to: 'application#venue', as: :food
+  get '/drinks', to: 'application#venue', as: :drinks
+
+  # resources :food, only: [:index]
+  # resources :drinks, only: [:index]
 
   post '/food' => 'application#set_geo'
   post '/drinks' => 'application#set_geo'

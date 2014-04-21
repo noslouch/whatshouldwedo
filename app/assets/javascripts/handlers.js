@@ -1,22 +1,38 @@
 /*jshint asi:true*/
+
 (function() {
-    var buttons = document.getElementById('buttons'),
-        ops = {
+    document.addEventListener('click', function disabled(e) {
+        if (e.target.classList.contains('disabled')) {
+            e.preventDefault()
+        }
+    }, false)
+})()
+
+var WN = {}
+WN.buttons = document.getElementById('buttons')
+
+WN.enableLinks = function() {
+    var links = this.buttons.querySelectorAll('a')
+
+    Array.prototype.forEach.call(links, function(el) {
+        el.classList.remove('disabled')
+    })
+}
+
+WN.locate = function() {
+        var ops = {
             timeout: 5000,
             maximumAge: 3000
         },
         ll
 
     function success(pos) {
-       ll = pos.coords.latitude + ',' + pos.coords.longitude
-       $.ajax({
-            type: 'POST',
-            url: document.location.pathname, 
-            beforeSend: function beforeSend(xhr) {
-                xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
-            },
-            data: {ll : ll},
-            dataType : 'string'
+        var links = this.buttons.querySelectorAll('a')
+        ll = pos.coords.latitude + ',' + pos.coords.longitude
+
+        Array.prototype.forEach.call(links, function(el) {
+            el.href = el.origin + '/' + el.pathname.match(/[^/]+/) + '/?ll=' + ll
+            el.classList.remove('disabled')
         })
     }
 
@@ -28,15 +44,5 @@
         }
     }
 
-    navigator.geolocation.getCurrentPosition(success, err, ops)
-
-    // if (buttons) {
-    //  buttons.addEventListener('click', function(e){
-    //     e.preventDefault()
-    //     $.post(e.target.href, {ll : ll}, function render(d) {
-    //         $('#venue').html($(d).html())
-    //     })
-    // }, false)        
-    // }
-
-})()
+    navigator.geolocation.getCurrentPosition(success.bind(this), err, ops)
+}
